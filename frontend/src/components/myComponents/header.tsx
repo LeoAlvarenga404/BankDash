@@ -4,7 +4,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 
 import { LuBellDot } from "react-icons/lu";
 import { Avatar } from "../ui/avatar";
-import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import { AvatarImage } from "@radix-ui/react-avatar";
 
 export function Header() {
   return (
@@ -29,7 +29,6 @@ export function Header() {
         </div>
         <Avatar className="scale-125">
           <AvatarImage src={"https://github.com/LeoAlvarenga404.png"} />
-          <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </div>
     </div>

@@ -11,6 +11,7 @@ export default {
       },
       colors: {
 				primaryBlue: "#2D60FF",
+        secondaryBlue: '#16DBCC',
         titleBlue: "#343C6A",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

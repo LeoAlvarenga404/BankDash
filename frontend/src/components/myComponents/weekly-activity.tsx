@@ -1,6 +1,6 @@
 "use client";
 
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, Legend, XAxis } from "recharts";
 
 import {
   Card,
@@ -19,35 +19,44 @@ import {
 export const description = "A multiple bar chart";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
-  { month: "June", desktop: 214, mobile: 140 },
-  { month: "June", desktop: 214, mobile: 140 },
-  { month: "June", desktop: 214, mobile: 140 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { day: "Saturday", withdraw: 186, diposit: 80 },
+  { day: "Sunday", withdraw: 305, diposit: 200 },
+  { day: "Monday", withdraw: 237, diposit: 120 },
+  { day: "Tuesday", withdraw: 73, diposit: 190 },
+  { day: "Wednesday", withdraw: 209, diposit: 130 },
+  { day: "Thuesday", withdraw: 214, diposit: 140 },
+  { day: "Friday", withdraw: 214, diposit: 140 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "hsl(var(--chart-1))",
+  withdraw: {
+    label: "Withdraw",
+    color: "#2D60FF",
   },
-  mobile: {
-    label: "Mobile",
-    color: "hsl(var(--chart-2))",
+  diposit: {
+    label: "Diposit",
+    color: "#16DBCC",
   },
 } satisfies ChartConfig;
 
 export function WeeklyActivityChartBar() {
   return (
     <Card className="w-full">
-      <CardHeader>
-        <CardTitle>Bar Chart - Multiple</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+      <CardHeader className="flex justify-between">
+        <div className="">
+          <CardTitle>Bar Chart - Multiple</CardTitle>
+          <CardDescription>January - June 2024</CardDescription>
+        </div>
+        <div className="flex gap-4">
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 rounded-full bg-primaryBlue "></div>
+            <span className="opacity-70">{chartConfig.withdraw.label}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 rounded-full bg-secondaryBlue "></div>
+            <span className="opacity-70">{chartConfig.diposit.label}</span>
+          </div>
+        </div>
       </CardHeader>
       <CardContent className="w-full h-52">
         <ChartContainer config={chartConfig} className="w-full h-full">
@@ -55,12 +64,13 @@ export function WeeklyActivityChartBar() {
             accessibilityLayer
             data={chartData}
             barCategoryGap={20}
-            width={null}
-            height={null}
+            barGap={20}
+  
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
+              dataKey="day"
+              type="category"
               tickLine={false}
               tickMargin={10}
               axisLine={false}
@@ -70,8 +80,8 @@ export function WeeklyActivityChartBar() {
               cursor={false}
               content={<ChartTooltipContent indicator="dashed" />}
             />
-            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-            <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+            <Bar dataKey="withdraw" fill="var(--color-withdraw)" radius={99} />
+            <Bar dataKey="diposit" fill="var(--color-diposit)" radius={99} />
           </BarChart>
         </ChartContainer>
       </CardContent>
