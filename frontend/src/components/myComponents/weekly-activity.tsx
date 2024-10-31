@@ -1,6 +1,6 @@
 "use client";
 
-import { Bar, BarChart, CartesianGrid, Legend, XAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 import {
   Card,
@@ -40,12 +40,30 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function WeeklyActivityChartBar() {
+  const now = new Date();
+  const month = now.getMonth();
+
+  const months = [
+    "Januay",
+    "Febuary",
+    "March",
+    "April",
+    "May",
+    "Juny",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   return (
     <Card className="w-full">
       <CardHeader className="flex justify-between">
         <div className="">
-          <CardTitle>Bar Chart - Multiple</CardTitle>
-          <CardDescription>January - June 2024</CardDescription>
+          <CardTitle>Withdraws and Diposits</CardTitle>
+          <CardDescription>{months[month]}</CardDescription>
         </div>
         <div className="flex gap-4">
           <div className="flex items-center gap-2">
@@ -65,7 +83,6 @@ export function WeeklyActivityChartBar() {
             data={chartData}
             barCategoryGap={20}
             barGap={20}
-  
           >
             <CartesianGrid vertical={false} />
             <XAxis

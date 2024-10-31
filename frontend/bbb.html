@@ -1,0 +1,504 @@
+<script type="text/javascript">
+  /** This section is only needed once per page if manually copying **/
+  if (typeof MauticSDKLoaded == "undefined") {
+    var MauticSDKLoaded = true;
+    var head = document.getElementsByTagName("head")[0];
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src =
+      "https://crmgrad.anchieta.br/dash/media/js/mautic-form.js?vf9090289";
+    script.onload = function () {
+      MauticSDK.onLoad();
+    };
+    head.appendChild(script);
+    var MauticDomain = "https://crmgrad.anchieta.br/dash";
+    var MauticLang = {
+      submittingMessage: "Por favor, aguarde...",
+    };
+  } else if (typeof MauticSDK != "undefined") {
+    MauticSDK.onLoad();
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+<script>
+  document
+    .getElementById("mauticform_input_consultadevalores_curso")
+    .addEventListener("change", function () {
+      // Checa se o valor selecionado come&ccedil;a com '7' seguido de tr&ecirc;s d&iacute;gitos
+      if (/^7d{3}$/.test(myParam)) {
+        // Altere o valor do campo 'mauticform[unidade1]'
+        document.getElementById("mauticform_input_unidade1").value =
+          "PL_EAD_JUNDIAI";
+      } else {
+        // Limpa o campo se a condi&ccedil;&atilde;o n&atilde;o for atendida
+        document.getElementById("mauticform_input_unidade1").value = "";
+      }
+    });
+</script>
+<script>
+  jQuery(document).ready(function () {
+    var SPMaskBehavior = function (val) {
+        return val.replace(/D/g, "").length === 11
+          ? "(00) 00000-0000"
+          : "(00) 0000-00009";
+      },
+      spOptions = {
+        onKeyPress: function (val, e, field, options) {
+          field.mask(SPMaskBehavior.apply({}, arguments), options);
+        },
+      };
+    jQuery(
+      'input[type=tel], input[id*="telefone"], input[class*="telefone"]'
+    ).mask(SPMaskBehavior, spOptions);
+    // Fun&ccedil;&atilde;o para remover a m&aacute;scara e atualizar o valor do campo
+    function removeMaskAndSaveValue(selector) {
+      jQuery(selector).each(function () {
+        var unmaskedValue = jQuery(this).cleanVal(); // Pega o valor sem a m&aacute;scara
+        jQuery(this).val(unmaskedValue); // Atualiza o campo com o valor sem m&aacute;scara
+      });
+    }
+    jQuery("form").submit(function (e) {
+      // Remover a m&aacute;scara do telefone antes de enviar
+      removeMaskAndSaveValue(
+        'input[type=tel], input[id*="telefone"], input[class*="telefone"]'
+      );
+    });
+    var urlParams = new URLSearchParams(window.location.search);
+    var myParam = urlParams.get("cod_curso");
+    jQuery("select#mauticform_input_consultadevalores_curso").val(myParam);
+  });
+</script>
+
+<style type="text/css" scoped>
+  .mauticform-field-hidden {
+    display: none;
+  }
+</style>
+<div
+  id="mauticform_wrapper_lpgpgraduacaoblackfriday"
+  class="mauticform_wrapper"
+>
+  <form
+    autocomplete="false"
+    role="form"
+    method="post"
+    action="https://crmgrad.anchieta.br/dash/form/submit?formId=32"
+    id="mauticform_lpgpgraduacaoblackfriday"
+    data-mautic-form="lpgpgraduacaoblackfriday"
+    enctype="multipart/form-data"
+  >
+    <div class="mauticform-innerform">
+      <div
+        class="mauticform-page-wrapper mauticform-page-1"
+        data-mautic-form-page="1"
+      >
+        <div
+          id="mauticform_lpgpgraduacaoblackfriday_estilo_padronizado"
+          class="mauticform-row mauticform-freehtml mauticform-field-1"
+        >
+          <div
+            name="mauticform[estilo_padronizado]"
+            value=""
+            id="mauticform_input_lpgpgraduacaoblackfriday_estilo_padronizado"
+            class="mauticform-freehtml"
+          >
+            <style type="text/css">
+              /* 
+===================================
+=====CUSTOMIZE AS CORES AQUI======
+===================================
+*/
+              :root {
+                --COR_BOTAO: #001d53;
+                --COR_BOTAO_AO_PASSAR_O_MOUSE: #ffffff;
+                --COR_TEXTO_BOTAO: #ffffff;
+                --COR_TEXTO_BOTAO_AO_PASSAR_O_MOUSE: #001d53;
+                --COR_BORDA_BOTAO: #001d53;
+                --COR_BORDA_BOTAO_AO_PASSAR_O_MOUSE: #001d53;
+                --COR_INPUT: #ffffff;
+                --COR_TEXTO_INPUT: #000000;
+                --COR_BORDA_INPUT: #001d53;
+                --COR_BORDA_INPUT_CLICADO: #7e7e7e;
+                --COR_PLACEHOLDER_INPUT: #000000;
+                --COR_LABEL_INPUT: #000000;
+                --COR_TEXTO_POL_PRIV: #000000;
+              }
+
+              #mauticform_wrapper_lpgpgraduacaoblackfriday form {
+                padding: 20px;
+                border-radius: 30px;
+                align-items: center;
+                font-family: "Montserrat", sans-serif;
+              }
+
+              #mauticform_wrapper_lpgpgraduacaoblackfriday form label {
+                color: var(--COR_LABEL_INPUT);
+                margin-bottom: 5px;
+                font-size: 16px;
+              }
+
+              #mauticform_wrapper_lpgpgraduacaoblackfriday form input {
+                background-color: var(--COR_INPUT);
+                color: var(--COR_TEXTO_INPUT);
+                border-radius: 5px;
+                font-size: 16px;
+                height: 35px;
+                padding-left: 15px;
+                margin-bottom: 15px;
+                border: 2px solid var(--COR_BORDA_INPUT);
+                border-radius: 50px;
+                outline: none;
+              }
+
+              #mauticform_wrapper_lpgpgraduacaoblackfriday form input:focus {
+                outline: none;
+                border: 2px solid var(--COR_BORDA_INPUT_CLICADO);
+              }
+
+              #mauticform_wrapper_lpgpgraduacaoblackfriday
+                form
+                input::placeholder {
+                color: var(--COR_PLACEHOLDER_INPUT);
+                font-size: 14px;
+              }
+
+              #mauticform_wrapper_lpgpgraduacaoblackfriday form select {
+                background-color: var(--COR_INPUT);
+                color: var(--COR_TEXTO_INPUT);
+                border-radius: 5px;
+                font-size: 16px;
+                height: 35px;
+                padding-left: 15px;
+                margin-bottom: 15px;
+                border: 2px solid var(--COR_BORDA_INPUT);
+                border-radius: 50px;
+                outline: none;
+                font-family: "Montserrat", sans-serif;
+              }
+
+              #mauticform_wrapper_lpgpgraduacaoblackfriday
+                > form
+                > div
+                > div
+                > div {
+                display: flex;
+                flex-direction: column;
+              }
+
+              #mauticform_wrapper_lpgpgraduacaoblackfriday form button {
+                align-self: center;
+                width: 100%;
+                margin-top: 15px;
+                font-size: 15px;
+                color: var(--COR_TEXTO_BOTAO);
+                padding: 10px;
+                background-color: var(--COR_BOTAO);
+                border: 1px solid var(--COR_BORDA_BOTAO);
+                border-radius: 50px;
+                transition-duration: 0.5s;
+                font-family: "Montserrat", sans-serif;
+                text-transform: uppercase;
+              }
+
+              #mauticform_wrapper_lpgpgraduacaoblackfriday form button:hover {
+                transform: scale(1.05);
+                transition-duration: 0.5s;
+                color: var(--COR_TEXTO_BOTAO_AO_PASSAR_O_MOUSE);
+                background-color: var(--COR_BOTAO_AO_PASSAR_O_MOUSE);
+                border: 1px solid var(--COR_BORDA_BOTAO_AO_PASSAR_O_MOUSE);
+                cursor: pointer;
+              }
+
+              #mauticform_input_lpgpgraduacaoblackfriday_lgpd > p {
+                text-align: justify;
+                font-size: 14px;
+                color: var(--COR_TEXTO_POL_PRIV);
+                font-weight: 500;
+              }
+
+              #mauticform_input_lpgpgraduacaoblackfriday_lgpd > p > a {
+                font-size: 14px;
+                text-decoration: underline;
+                color: var(--COR_TEXTO_POL_PRIV);
+                font-weight: 800;
+              }
+            </style>
+          </div>
+        </div>
+
+        <div
+          id="mauticform_lpgpgraduacaoblackfriday_mascara_jquery"
+          class="mauticform-row mauticform-freehtml mauticform-field-2"
+        >
+          <div
+            name="mauticform[mascara_jquery]"
+            value=""
+            id="mauticform_input_lpgpgraduacaoblackfriday_mascara_jquery"
+            class="mauticform-freehtml"
+          ></div>
+        </div>
+
+        <div
+          id="mauticform_lpgpgraduacaoblackfriday_nome"
+          class="mauticform-row mauticform-text mauticform-field-3 mauticform-required"
+          data-validate="nome"
+          data-validation-type="text"
+        >
+          <label
+            id="mauticform_label_lpgpgraduacaoblackfriday_nome"
+            for="mauticform_input_lpgpgraduacaoblackfriday_nome"
+            class="mauticform-label"
+            >Nome</label
+          >
+
+          <input
+            type="text"
+            placeholder="Preencha com o seu Nome"
+            name="mauticform[nome]"
+            value=""
+            id="mauticform_input_lpgpgraduacaoblackfriday_nome"
+            class="mauticform-input"
+          />
+
+          <span class="mauticform-errormsg" style="display: none"
+            >Preencha o nome</span
+          >
+        </div>
+
+        <div
+          id="mauticform_lpgpgraduacaoblackfriday_sobrenome"
+          class="mauticform-row mauticform-text mauticform-field-4 mauticform-required"
+          data-validate="sobrenome"
+          data-validation-type="text"
+        >
+          <label
+            id="mauticform_label_lpgpgraduacaoblackfriday_sobrenome"
+            for="mauticform_input_lpgpgraduacaoblackfriday_sobrenome"
+            class="mauticform-label"
+            >Sobrenome</label
+          >
+
+          <input
+            type="text"
+            placeholder="Preencha com o seu Sobrenome"
+            name="mauticform[sobrenome]"
+            value=""
+            id="mauticform_input_lpgpgraduacaoblackfriday_sobrenome"
+            class="mauticform-input"
+          />
+
+          <span class="mauticform-errormsg" style="display: none"
+            >Preencha o sobrenome</span
+          >
+        </div>
+
+        <div
+          id="mauticform_lpgpgraduacaoblackfriday_email"
+          class="mauticform-row mauticform-email mauticform-field-5 mauticform-required"
+          data-validate="email"
+          data-validation-type="email"
+        >
+          <label
+            id="mauticform_label_lpgpgraduacaoblackfriday_email"
+            for="mauticform_input_lpgpgraduacaoblackfriday_email"
+            class="mauticform-label"
+            >E-mail</label
+          >
+
+          <input
+            type="email"
+            placeholder="Preencha com o seu E-mail"
+            name="mauticform[email]"
+            value=""
+            id="mauticform_input_lpgpgraduacaoblackfriday_email"
+            class="mauticform-input"
+          />
+
+          <span class="mauticform-errormsg" style="display: none"
+            >Preencha o e-mail</span
+          >
+        </div>
+
+        <div
+          id="mauticform_lpgpgraduacaoblackfriday_celular_whatsapp"
+          class="mauticform-row mauticform-tel mauticform-field-6 mauticform-required"
+          data-validate="celular_whatsapp"
+          data-validation-type="tel"
+        >
+          <label
+            id="mauticform_label_lpgpgraduacaoblackfriday_celular_whatsapp"
+            for="mauticform_input_lpgpgraduacaoblackfriday_celular_whatsapp"
+            class="mauticform-label"
+            >Celular (Whatsapp)</label
+          >
+
+          <input
+            type="tel"
+            placeholder="Preencha com o seu Celular"
+            name="mauticform[celular_whatsapp]"
+            value=""
+            id="mauticform_input_lpgpgraduacaoblackfriday_celular_whatsapp"
+            class="mauticform-input"
+          />
+
+          <span class="mauticform-errormsg" style="display: none"
+            >Preencha o celular</span
+          >
+        </div>
+
+        <div
+          id="mauticform_lpgpgraduacaoblackfriday_curso"
+          class="mauticform-row mauticform-select mauticform-field-7 mauticform-required"
+          data-validate="curso"
+          data-validation-type="select"
+        >
+          <label
+            id="mauticform_label_lpgpgraduacaoblackfriday_curso"
+            for="mauticform_input_lpgpgraduacaoblackfriday_curso"
+            class="mauticform-label"
+            >Curso</label
+          >
+          <select
+            name="mauticform[curso]"
+            value=""
+            id="mauticform_input_lpgpgraduacaoblackfriday_curso"
+            placeholder="Selecione..."
+            class="mauticform-selectbox"
+          >
+            <option value="">Selecione...</option>
+            <option value="7008">Administração - EAD</option>
+            <option value="7116">
+              Análise e Desenvolvimento de Sistemas - EAD
+            </option>
+            <option value="7208">Artes Visuais - EAD</option>
+            <option value="7119">Automação Industrial - EAD</option>
+            <option value="7025">
+              Big Data e Inteligência Analítica - EAD
+            </option>
+            <option value="7011">Ciências Contábeis - EAD</option>
+            <option value="7141">Comércio Exterior - EAD</option>
+            <option value="7209">Design de Interiores - EAD</option>
+            <option value="7013">Economia - EAD</option>
+            <option value="7234">Filosofia - EAD</option>
+            <option value="7212">Geografia - EAD</option>
+            <option value="7236">Gastronomia - EAD</option>
+            <option value="7122">Gestão Ambiental - EAD</option>
+            <option value="7260">Gestão Comercial - EAD</option>
+            <option value="7241">Gestão Financeira - EAD</option>
+            <option value="7109">Gestão Hospitalar - EAD</option>
+            <option value="7252">Gestão Pública - EAD</option>
+            <option value="7004">Gestão da Produção Industrial - EAD</option>
+            <option value="7003">Gestão da Qualidade - EAD</option>
+            <option value="7211">Gestão da Segurança Privada - EAD</option>
+            <option value="7026">
+              Gestão da Tecnologia da Informação - EAD
+            </option>
+            <option value="7243">Gestão de Recursos Humanos - EAD</option>
+            <option value="7078">História - EAD</option>
+            <option value="7014">Letras - EAD</option>
+            <option value="7015">Licenciatura em Pedagogia - EAD</option>
+            <option value="7146">Logística - EAD</option>
+            <option value="7850">Marketing Digital - EAD</option>
+            <option value="7091">Matemática - EAD</option>
+            <option value="7242">Negócios Imobiliários - EAD</option>
+            <option value="7915">Pedagogia 2ª Licenciatura - EAD</option>
+            <option value="7077">Perícia Criminal - EAD</option>
+            <option value="7000">Processos Gerenciais - EAD</option>
+            <option value="7213">Psicopedagogia - EAD</option>
+            <option value="7235">Química - EAD</option>
+            <option value="7117">Rede de Computadores - EAD</option>
+            <option value="7001">Relações Internacionais - EAD</option>
+            <option value="7027">Segurança da Informação - EAD</option>
+            <option value="7245">Segurança do Trabalho - EAD</option>
+            <option value="7250">Serviço Social - EAD</option>
+            <option value="7210">Teologia - EAD</option>
+          </select>
+          <span class="mauticform-errormsg" style="display: none"
+            >Selecione o Curso.</span
+          >
+        </div>
+
+        <div
+          id="mauticform_lpgpgraduacaoblackfriday_lgpd"
+          class="mauticform-row mauticform-freetext mauticform-field-8"
+        >
+          <div
+            name="mauticform[lgpd]"
+            value=""
+            id="mauticform_input_lpgpgraduacaoblackfriday_lgpd"
+            class="mauticform-freetext"
+          >
+            <p style="margin-left: 0px">
+              <span style="font-size: inherit"
+                >Ao enviar este formulário, declaro que li e concordo com a </span
+              ><a href="https://anchieta.br/politica-de-privacidade/"
+                ><span style="font-size: inherit"
+                  >Política de Privacidade</span
+                ></a
+              ><span style="font-size: inherit"
+                >, bem como com o tratamento dos meus dados, e autorizo o
+                contato para fornecimento de informações sobre produtos e
+                serviços educacionais prestados pelo Grupo Anchieta.</span
+              >
+            </p>
+          </div>
+        </div>
+
+        <div
+          id="mauticform_lpgpgraduacaoblackfriday_aplica_mascara"
+          class="mauticform-row mauticform-freehtml mauticform-field-9"
+        >
+          <div
+            name="mauticform[aplica_mascara]"
+            value=""
+            id="mauticform_input_lpgpgraduacaoblackfriday_aplica_mascara"
+            class="mauticform-freehtml"
+          >
+            <!-- N&Atilde;O ALTERAR -->
+          </div>
+        </div>
+
+        <div
+          id="mauticform_lpgpgraduacaoblackfriday_submit"
+          class="mauticform-row mauticform-button-wrapper mauticform-field-10"
+        >
+          <button
+            class="btn btn-default mauticform-button"
+            name="mauticform[submit]"
+            value="1"
+            id="mauticform_input_lpgpgraduacaoblackfriday_submit"
+            type="submit"
+          >
+            Enviar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mauticform-error"
+      id="mauticform_lpgpgraduacaoblackfriday_error"
+    ></div>
+    <div
+      class="mauticform-message"
+      id="mauticform_lpgpgraduacaoblackfriday_message"
+    ></div>
+    <input
+      type="hidden"
+      name="mauticform[formId]"
+      id="mauticform_lpgpgraduacaoblackfriday_id"
+      value="32"
+    />
+    <input
+      type="hidden"
+      name="mauticform[return]"
+      id="mauticform_lpgpgraduacaoblackfriday_return"
+      value=""
+    />
+    <input
+      type="hidden"
+      name="mauticform[formName]"
+      id="mauticform_lpgpgraduacaoblackfriday_name"
+      value="lpgpgraduacaoblackfriday"
+    />
+  </form>
+</div>

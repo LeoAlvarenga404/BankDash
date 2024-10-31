@@ -1,0 +1,545 @@
+<script type="text/javascript">
+  /** This section is only needed once per page if manually copying **/
+  if (typeof MauticSDKLoaded == "undefined") {
+    var MauticSDKLoaded = true;
+    var head = document.getElementsByTagName("head")[0];
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src =
+      "https://crmgrad.anchieta.br/dash/media/js/mautic-form.js?vf9090289";
+    script.onload = function () {
+      MauticSDK.onLoad();
+    };
+    head.appendChild(script);
+    var MauticDomain = "https://crmgrad.anchieta.br/dash";
+    var MauticLang = {
+      submittingMessage: "Por favor, aguarde...",
+    };
+  } else if (typeof MauticSDK != "undefined") {
+    MauticSDK.onLoad();
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+</script>
+
+<!-- NÃO ALTERAR -->
+<script>
+  jQuery(document).ready(function() {
+    var SPMaskBehavior = function(val) {
+        return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+      },
+      spOptions = {
+        onKeyPress: function(val, e, field, options) {
+          field.mask(SPMaskBehavior.apply({}, arguments), options);
+        }
+      };
+    jQuery('input[type=tel], input[id*="telefone"], input[class*="telefone"]').mask(SPMaskBehavior, spOptions);
+    // Função para remover a máscara e atualizar o valor do campo
+    function removeMaskAndSaveValue(selector) {
+      jQuery(selector).each(function() {
+        var unmaskedValue = jQuery(this).cleanVal(); // Pega o valor sem a máscara
+        jQuery(this).val(unmaskedValue); // Atualiza o campo com o valor sem máscara
+      });
+    }
+    jQuery('form').submit(function(e) {
+      // Remover a máscara do telefone antes de enviar
+      removeMaskAndSaveValue('input[type=tel], input[id*="telefone"], input[class*="telefone"]');
+    });
+    var urlParams = new URLSearchParams(window.location.search);
+    var myParam = urlParams.get('cod_curso');
+    jQuery("select#mauticform_input_consultadevalores_curso").val(myParam);
+  });
+</script>
+
+<style type="text/css" scoped>
+  .mauticform-field-hidden {
+    display: none
+  }
+</style>
+<div id="mauticform_wrapper_convenios" class="mauticform_wrapper">
+  <form autocomplete="false" role="form" method="post" action="https://crmgrad.anchieta.br/dash/form/submit?formId=35"
+    id="mauticform_convenios" data-mautic-form="convenios" enctype="multipart/form-data">
+    <div class="mauticform-innerform">
+      <div class="mauticform-page-wrapper mauticform-page-1" data-mautic-form-page="1">
+
+        <div id="mauticform_convenios_estilo_padronizado" class="mauticform-row mauticform-freehtml mauticform-field-1">
+          <div name="mauticform[estilo_padronizado]" value="" id="mauticform_input_convenios_estilo_padronizado"
+            class="mauticform-freehtml">
+            <style type="text/css">
+              /* 
+===================================
+=====CUSTOMIZE AS CORES AQUI======
+===================================
+*/
+              :root {
+                --COR_BOTAO: #001d53;
+                --COR_BOTAO_AO_PASSAR_O_MOUSE: #ffffff;
+                --COR_TEXTO_BOTAO: #ffffff;
+                --COR_TEXTO_BOTAO_AO_PASSAR_O_MOUSE: #001d53;
+                --COR_BORDA_BOTAO: #001d53;
+                --COR_BORDA_BOTAO_AO_PASSAR_O_MOUSE: #001d53;
+                --COR_INPUT: #ffffff;
+                --COR_TEXTO_INPUT: #000000;
+                --COR_BORDA_INPUT: #001d53;
+                --COR_BORDA_INPUT_CLICADO: #7e7e7e;
+                --COR_PLACEHOLDER_INPUT: #000000;
+                --COR_LABEL_INPUT: #000000;
+                --COR_TEXTO_POL_PRIV: #000000;
+              }
+
+              #mauticform_wrapper_convenios form {
+                padding: 20px;
+                border-radius: 30px;
+                align-items: center;
+                font-family: "Montserrat", sans-serif;
+              }
+
+              #mauticform_wrapper_convenios form label {
+                color: var(--COR_LABEL_INPUT);
+                margin-bottom: 5px;
+                font-size: 16px;
+              }
+
+              #mauticform_wrapper_convenios form input {
+                background-color: var(--COR_INPUT);
+                color: var(--COR_TEXTO_INPUT);
+                border-radius: 5px;
+                font-size: 16px;
+                height: 35px;
+                padding-left: 15px;
+                margin-bottom: 15px;
+                border: 2px solid var(--COR_BORDA_INPUT);
+                border-radius: 50px;
+                outline: none;
+              }
+
+              #mauticform_wrapper_convenios form input:focus {
+                outline: none;
+                border: 2px solid var(--COR_BORDA_INPUT_CLICADO);
+              }
+
+              #mauticform_wrapper_convenios form input::placeholder {
+                color: var(--COR_PLACEHOLDER_INPUT);
+                font-size: 14px;
+              }
+
+              #mauticform_wrapper_convenios form select {
+                background-color: var(--COR_INPUT);
+                color: var(--COR_TEXTO_INPUT);
+                border-radius: 5px;
+                font-size: 16px;
+                height: 35px;
+                padding-left: 15px;
+                margin-bottom: 15px;
+                border: 2px solid var(--COR_BORDA_INPUT);
+                border-radius: 50px;
+                outline: none;
+                font-family: "Montserrat", sans-serif;
+              }
+
+              #mauticform_wrapper_convenios>form>div>div>div {
+                display: flex;
+                flex-direction: column;
+              }
+
+              #mauticform_wrapper_convenios form button {
+                align-self: center;
+                width: 100%;
+                margin-top: 15px;
+                font-size: 15px;
+                color: var(--COR_TEXTO_BOTAO);
+                padding: 10px;
+                background-color: var(--COR_BOTAO);
+                border: 1px solid var(--COR_BORDA_BOTAO);
+                border-radius: 50px;
+                transition-duration: 0.5s;
+                font-family: "Montserrat", sans-serif;
+                text-transform: uppercase;
+              }
+
+              #mauticform_wrapper_convenios form button:hover {
+                transform: scale(1.05);
+                transition-duration: 0.5s;
+                color: var(--COR_TEXTO_BOTAO_AO_PASSAR_O_MOUSE);
+                background-color: var(--COR_BOTAO_AO_PASSAR_O_MOUSE);
+                border: 1px solid var(--COR_BORDA_BOTAO_AO_PASSAR_O_MOUSE);
+                cursor: pointer;
+              }
+
+              #mauticform_input_lpgpgraduacaoblackfriday_lgpd>p {
+                text-align: justify;
+                font-size: 14px;
+                color: var(--COR_TEXTO_POL_PRIV);
+                font-weight: 500;
+              }
+
+              #mauticform_input_lpgpgraduacaoblackfriday_lgpd>p>a {
+                font-size: 14px;
+                text-decoration: underline;
+                color: var(--COR_TEXTO_POL_PRIV);
+                font-weight: 800;
+              }
+            </style>
+          </div>
+        </div>
+
+
+        <div id="mauticform_convenios_mascara_jquery" class="mauticform-row mauticform-freehtml mauticform-field-2">
+          <div name="mauticform[mascara_jquery]" value="" id="mauticform_input_convenios_mascara_jquery"
+            class="mauticform-freehtml">
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_nome_da_empresa"
+          class="mauticform-row mauticform-text mauticform-field-3 mauticform-required" data-validate="nome_da_empresa"
+          data-validation-type="text">
+          <label id="mauticform_label_convenios_nome_da_empresa" for="mauticform_input_convenios_nome_da_empresa"
+            class="mauticform-label">Nome da Empresa</label>
+
+          <input type="text" placeholder="Preencha com o nome da empresa" name="mauticform[nome_da_empresa]" value=""
+            id="mauticform_input_convenios_nome_da_empresa" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Preencha com o nome da empresa.</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_cnpj"
+          class="mauticform-row mauticform-text mauticform-field-4 mauticform-required" data-validate="cnpj"
+          data-validation-type="text">
+          <label id="mauticform_label_convenios_cnpj" for="mauticform_input_convenios_cnpj"
+            class="mauticform-label">CNPJ</label>
+
+          <input type="text" placeholder="Preencha com o CNPJ" name="mauticform[cnpj]" value=""
+            id="mauticform_input_convenios_cnpj" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Isso é obrigatório.</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_cargo_representante"
+          class="mauticform-row mauticform-text mauticform-field-5 mauticform-required"
+          data-validate="cargo_representante" data-validation-type="text">
+          <label id="mauticform_label_convenios_cargo_representante"
+            for="mauticform_input_convenios_cargo_representante" class="mauticform-label">Cargo (Representante)</label>
+
+          <input type="text" placeholder="Preencha com o cargo do representante" name="mauticform[cargo_representante]"
+            value="" id="mauticform_input_convenios_cargo_representante" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Isso é obrigatório.</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_nome_completo_representan"
+          class="mauticform-row mauticform-text mauticform-field-6 mauticform-required"
+          data-validate="nome_completo_representan" data-validation-type="text">
+          <label id="mauticform_label_convenios_nome_completo_representan"
+            for="mauticform_input_convenios_nome_completo_representan" class="mauticform-label">Nome Completo
+            (Representante)</label>
+
+          <input type="text" placeholder="Preencha com o nome do representante"
+            name="mauticform[nome_completo_representan]" value=""
+            id="mauticform_input_convenios_nome_completo_representan" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Isso é obrigatório.</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_telefone_representante"
+          class="mauticform-row mauticform-tel mauticform-field-7 mauticform-required"
+          data-validate="telefone_representante" data-validation-type="tel">
+          <label id="mauticform_label_convenios_telefone_representante"
+            for="mauticform_input_convenios_telefone_representante" class="mauticform-label">Telefone
+            (Representante)</label>
+
+          <input type="tel" placeholder="Preencha com o telefone" name="mauticform[telefone_representante]" value=""
+            id="mauticform_input_convenios_telefone_representante" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Isso é obrigatório.</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_cpf_representante"
+          class="mauticform-row mauticform-text mauticform-field-8 mauticform-required"
+          data-validate="cpf_representante" data-validation-type="text">
+          <label id="mauticform_label_convenios_cpf_representante" for="mauticform_input_convenios_cpf_representante"
+            class="mauticform-label">CPF (Representante)</label>
+
+          <input type="text" placeholder="Preencha com o CPF do representante" name="mauticform[cpf_representante]"
+            value="" id="mauticform_input_convenios_cpf_representante" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Isso é obrigatório.</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_endereco_completo_com_cep"
+          class="mauticform-row mauticform-text mauticform-field-9 mauticform-required"
+          data-validate="endereco_completo_com_cep" data-validation-type="text">
+          <label id="mauticform_label_convenios_endereco_completo_com_cep"
+            for="mauticform_input_convenios_endereco_completo_com_cep" class="mauticform-label">Endereço Completo (Com
+            CEP e Cidade)</label>
+
+          <input type="text" placeholder="Preencha com o endereço completo" name="mauticform[endereco_completo_com_cep]"
+            value="" id="mauticform_input_convenios_endereco_completo_com_cep" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Isso é obrigatório.</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_email_representante"
+          class="mauticform-row mauticform-email mauticform-field-10 mauticform-required"
+          data-validate="email_representante" data-validation-type="email">
+          <label id="mauticform_label_convenios_email_representante"
+            for="mauticform_input_convenios_email_representante" class="mauticform-label">Email (Representante)</label>
+
+          <input type="email" placeholder="Preencha com o email do representante" name="mauticform[email_representante]"
+            value="" id="mauticform_input_convenios_email_representante" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Isso é obrigatório.</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_nome_completo_testemunha"
+          class="mauticform-row mauticform-text mauticform-field-11 mauticform-required"
+          data-validate="nome_completo_testemunha" data-validation-type="text">
+          <label id="mauticform_label_convenios_nome_completo_testemunha"
+            for="mauticform_input_convenios_nome_completo_testemunha" class="mauticform-label">Nome Completo
+            (Testemunha)</label>
+
+          <input type="text" placeholder="Preencha com o nome da testemunha" name="mauticform[nome_completo_testemunha]"
+            value="" id="mauticform_input_convenios_nome_completo_testemunha" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Isso é obrigatório.</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_telefone_testemunha"
+          class="mauticform-row mauticform-tel mauticform-field-12 mauticform-required"
+          data-validate="telefone_testemunha" data-validation-type="tel">
+          <label id="mauticform_label_convenios_telefone_testemunha"
+            for="mauticform_input_convenios_telefone_testemunha" class="mauticform-label">Telefone (Testemunha)</label>
+
+          <input type="tel" placeholder="Preencha com o número da testemunha" name="mauticform[telefone_testemunha]"
+            value="" id="mauticform_input_convenios_telefone_testemunha" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Isso é obrigatório.</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_cpf_testemunha"
+          class="mauticform-row mauticform-text mauticform-field-13 mauticform-required" data-validate="cpf_testemunha"
+          data-validation-type="text">
+          <label id="mauticform_label_convenios_cpf_testemunha" for="mauticform_input_convenios_cpf_testemunha"
+            class="mauticform-label">CPF (Testemunha)</label>
+
+          <input type="text" placeholder="Preencha com o CPF da testemunha" name="mauticform[cpf_testemunha]" value=""
+            id="mauticform_input_convenios_cpf_testemunha" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Isso é obrigatório.</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_email_testemunha_diferent"
+          class="mauticform-row mauticform-text mauticform-field-14 mauticform-required"
+          data-validate="email_testemunha_diferent" data-validation-type="text">
+          <label id="mauticform_label_convenios_email_testemunha_diferent"
+            for="mauticform_input_convenios_email_testemunha_diferent" class="mauticform-label">Email Testemunha
+            (diferente do e-mail do representante)</label>
+
+          <input type="text" placeholder="Preencha com o email da testemunha"
+            name="mauticform[email_testemunha_diferent]" value=""
+            id="mauticform_input_convenios_email_testemunha_diferent" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Isso é obrigatório.</span>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="mauticform_convenios_cargo_testemunha"
+          class="mauticform-row mauticform-text mauticform-field-15 mauticform-required"
+          data-validate="cargo_testemunha" data-validation-type="text">
+          <label id="mauticform_label_convenios_cargo_testemunha" for="mauticform_input_convenios_cargo_testemunha"
+            class="mauticform-label">Cargo (Testemunha)</label>
+
+          <input type="text" placeholder="Preencha com o cargo da testemunha" name="mauticform[cargo_testemunha]"
+            value="" id="mauticform_input_convenios_cargo_testemunha" class="mauticform-input">
+
+          <span class="mauticform-errormsg" style="display:none;">Isso é obrigatório.</span>
+        </div>
+
+
+
+
+
+        <div id="mauticform_convenios_lgpd" class="mauticform-row mauticform-freetext mauticform-field-16">
+          <div name="mauticform[lgpd]" value="" id="mauticform_input_convenios_lgpd" class="mauticform-freetext">
+            <p style="margin-left:0px;"><span style="font-size:inherit;">Ao enviar este formulário, declaro que li e
+                concordo com a </span><a href="https://anchieta.br/politica-de-privacidade/"><span
+                  style="font-size:inherit;">Política de Privacidade</span></a><span style="font-size:inherit;">, bem
+                como com o tratamento dos meus dados, e autorizo o contato para fornecimento de informações sobre
+                produtos e serviços educacionais prestados pelo Grupo Anchieta.</span></p>
+          </div>
+        </div>
+
+
+        <div id="mauticform_convenios_aplica_mascara" class="mauticform-row mauticform-freehtml mauticform-field-17">
+          <div name="mauticform[aplica_mascara]" value="" id="mauticform_input_convenios_aplica_mascara"
+            class="mauticform-freehtml">
+
+
+            <!-- N&Atilde;O ALTERAR -->
+
+          </div>
+        </div>
+
+
+
+
+
+        <div id="mauticform_convenios_submit" class="mauticform-row mauticform-button-wrapper mauticform-field-18">
+          <button class="btn btn-default mauticform-button" name="mauticform[submit]" value="1"
+            id="mauticform_input_convenios_submit" type="submit">Enviar</button>
+        </div>
+      </div>
+    </div>
+    <div class="mauticform-error" id="mauticform_convenios_error"></div>
+    <div class="mauticform-message" id="mauticform_convenios_message"></div><input type="hidden"
+      name="mauticform[formId]" id="mauticform_convenios_id" value="35">
+    <input type="hidden" name="mauticform[return]" id="mauticform_convenios_return" value="">
+    <input type="hidden" name="mauticform[formName]" id="mauticform_convenios_name" value="convenios">
+
+  </form>
+</div>
